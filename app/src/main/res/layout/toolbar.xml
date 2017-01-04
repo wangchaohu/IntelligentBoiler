@@ -4,8 +4,6 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:paddingLeft="16dp"
-
     android:background="@color/colorPrimary">
 <ImageButton
     android:id="@+id/btn_return"
@@ -14,15 +12,16 @@
     android:src="@drawable/return_icon"
     android:layout_gravity="center_vertical"
     android:background="#00000000"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     />
     <TextView
         android:id="@+id/title_tv"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="标题"
         android:textColor="#ffffff"
-        android:textSize="20dp"
         android:layout_marginLeft="16dp"
-        android:gravity="center"
+        android:textSize="20dp"
         android:layout_gravity="center"/>
 </LinearLayout>

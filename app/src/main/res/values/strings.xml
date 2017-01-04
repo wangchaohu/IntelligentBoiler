@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">IntelligentBoiler</string>
+    <string name="btnText_login_main">登录</string>
+    <string name="btnText_demonstrate_main">演示</string>
+    <string name="dialog_text">您上次选择的演示锅炉是：\n</string>
+    <string name="dialog_text_yes">直接前往</string>
+    <string name="dialog_text_no">选择演示锅炉</string>
 </resources>

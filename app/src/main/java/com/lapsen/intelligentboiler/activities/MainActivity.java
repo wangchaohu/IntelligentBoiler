@@ -1,17 +1,108 @@
 package com.lapsen.intelligentboiler.activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.base.BaseActivity;
+import com.lapsen.intelligentboiler.interfaces.MainActivityInterface;
+import com.lapsen.intelligentboiler.presenter.MainPresenter;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements MainActivityInterface{
+
+    private MainPresenter mMainPresenter;
+    private ProgressBar mProgressBar;
+    private Button demonstrate_Btn, login_Btn;
+
+    private AlertDialog.Builder mDialog;
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initPresenter();
+        init();
+    }
 
-        super.initToolBar("首页");
+    /**
+     * 初始化控件
+     * */
+    private void init(){
+        mProgressBar = (ProgressBar) findViewById(R.id.loading_pb);
+        demonstrate_Btn = (Button) findViewById(R.id.btn_demonstrate);
+        login_Btn = (Button) findViewById(R.id.btn_login);
+
+        demonstrate_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMainPresenter.startDemonstrate();
+            }
+        });
+
+        login_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //// TODO: 2017/1/4 登录 
+            }
+        });
+    }
+
+    /**
+     * 初始化Presenter
+     * */
+    private void initPresenter(){
+        mMainPresenter = new MainPresenter(this);
+    }
+    @Override
+    public void showProgress() {
+        if (null != mProgressBar && !mProgressBar.isShown()){
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void hideProgress() {
+        if (null != mProgressBar && mProgressBar.isShown()){
+            mProgressBar.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void toOtherActivity(Class otherActivity) {
+        startActivity(new Intent(MainActivity.this, otherActivity));
+    }
+
+    @Override
+    public void showDialog() {
+        hideProgress();
+        if (null == mDialog){
+            mDialog.setMessage(R.string.dialog_text)
+                    .setPositiveButton(R.string.dialog_text_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            // TODO: 2017/1/4  直接前往已选择的锅炉
+                        }
+                    })
+                    .setNegativeButton(R.string.dialog_text_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // TODO: 2017/1/4 选择演示锅炉
+                        }
+                    });
+            mDialog.create();
+        }
+        mDialog.show();
+    }
+
+    @Override
+    public void hideDialog() {
+        if (null != mDialog){
+            mDialog = null;
+        }
     }
 }

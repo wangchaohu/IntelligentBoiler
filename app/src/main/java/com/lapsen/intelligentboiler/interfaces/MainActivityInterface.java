@@ -8,8 +8,8 @@ public interface MainActivityInterface {
     public void showProgress();
     public void hideProgress();
 
-    public void toOtherActivity();
+    public void toOtherActivity(Class otherActivity);
 
     public void showDialog();
-    public void hidDialog();
+    public void hideDialog();
 }
