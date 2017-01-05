@@ -24,6 +24,7 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
     @Override
     public void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
+        initToolBar("MainActivity");
         initPresenter();
         init();
     }
@@ -87,6 +88,7 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
                         public void onClick(DialogInterface dialog, int which) {
 
                             // TODO: 2017/1/4  直接前往已选择的锅炉
+                            toOtherActivity(MajorActivity.class);
                         }
                     })
                     .setNegativeButton(R.string.dialog_text_no, new DialogInterface.OnClickListener() {
