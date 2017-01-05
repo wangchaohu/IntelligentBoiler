@@ -80,6 +80,7 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
     public void showDialog() {
         hideProgress();
         if (null == mDialog){
+            mDialog = new AlertDialog.Builder(this);
             mDialog.setMessage(R.string.dialog_text)
                     .setPositiveButton(R.string.dialog_text_yes, new DialogInterface.OnClickListener() {
                         @Override
