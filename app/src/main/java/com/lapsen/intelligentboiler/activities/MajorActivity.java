@@ -5,7 +5,9 @@ import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
 import com.lapsen.intelligentboiler.R;
+import com.lapsen.intelligentboiler.adapter.GridViewAdapter;
 import com.lapsen.intelligentboiler.base.BaseActivity;
+import com.lapsen.intelligentboiler.interfaces.MajorActivityInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,11 +17,11 @@ import java.util.Map;
  * Created by lapsen_wang on 2017/1/5.
  */
 
-public class MajorActivity extends BaseActivity {
+public class MajorActivity extends BaseActivity implements MajorActivityInterface{
 
 
     private GridView mGridView;
-    private SimpleAdapter mSimpleAdapter;
+    private GridViewAdapter mGridViewAdapter;
 
     private ArrayList<Map<String, Object>> listData = new ArrayList<>();
     private int[] icons = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher}; //GridView上的图片
@@ -48,21 +50,16 @@ public class MajorActivity extends BaseActivity {
 
     private void setGridView(GridView mGridView) {
 
-        /**
-         * 填充数据
-         * */
-        if (icons.length == texts.length) {
-            for (int i = 0; i < icons.length; i++) {
-                HashMap<String, Object> map = new HashMap<>();
-                map.put("image", icons[i]);
-                map.put("text", texts[i]);
-                listData.add(map);
-            }
-        }
+        mGridViewAdapter = new GridViewAdapter(MajorActivity.this, icons, texts);
 
-//        if (null != mGridView && listData.size() != 0) {
-            mSimpleAdapter = new SimpleAdapter(MajorActivity.this, listData, R.layout.item_major_gridview, new String[]{"image", "text"}, new int[]{R.id.major_grid_Iv, R.id.major_grid_Tv});
-            mGridView.setAdapter(mSimpleAdapter);
-//        }
+            mGridView.setAdapter(mGridViewAdapter);
+    }
+
+    /**
+     * 跳转到其他Activity
+     * */
+    @Override
+    public void toOtherActivity(Class otherActivity) {
+
     }
 }
