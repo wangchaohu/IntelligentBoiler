@@ -8,6 +8,7 @@ import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.adapter.GridViewAdapter;
 import com.lapsen.intelligentboiler.base.BaseActivity;
 import com.lapsen.intelligentboiler.interfaces.MajorActivityInterface;
+import com.lapsen.intelligentboiler.presenter.MajorPresenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,39 +21,29 @@ import java.util.Map;
 public class MajorActivity extends BaseActivity implements MajorActivityInterface{
 
 
+    private MajorPresenter mMajorPresenter;
     private GridView mGridView;
-    private GridViewAdapter mGridViewAdapter;
-
-    private ArrayList<Map<String, Object>> listData = new ArrayList<>();
-    private int[] icons = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher}; //GridView上的图片
-    private String[] texts = {"直接前往", "直接前往", "直接前往", "直接前往", "直接前往", "直接前往"}; //GridView上的文字
 
     @Override
     public void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_major);
         initToolBar("锅炉");
-        init();
+        initGridView();
     }
 
     /**
      * 初始化控件
      */
-    private void init() {
+    private void initGridView() {
         mGridView = (GridView) findViewById(R.id.major_Gv);
-        if (null != mGridView) {
-            setGridView(mGridView);
-        }
+        mMajorPresenter = new MajorPresenter(MajorActivity.this, this);
     }
 
-    /**
-     * 设置GridView
-     */
-
-    private void setGridView(GridView mGridView) {
-
-        mGridViewAdapter = new GridViewAdapter(MajorActivity.this, icons, texts);
-
+    @Override
+    public void setGridViewAdapter(GridViewAdapter mGridViewAdapter) {
+        if (null != mGridView) {
             mGridView.setAdapter(mGridViewAdapter);
+        }
     }
 
     /**
