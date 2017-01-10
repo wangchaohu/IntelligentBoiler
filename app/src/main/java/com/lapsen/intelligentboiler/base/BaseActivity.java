@@ -42,7 +42,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             return_Btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(BaseActivity.this, "点击了返回按钮", Toast.LENGTH_SHORT).show();
+                    finish();
+//                    Toast.makeText(BaseActivity.this, "点击了返回按钮", Toast.LENGTH_SHORT).show();
                 }
             });
         }
