@@ -29,6 +29,10 @@
         <activity android:name=".activities.SecurityAlarmActivity"/>
         <!--个人中心activity-->
         <activity android:name=".activities.PersonalCenterActivity"/>
+        <!--登录Activity-->
+        <activity android:name=".activities.LoginActivity"/>
+        <!--选择演示activity-->
+        <activity android:name=".activities.SelectDemonstrateActivity"/>
     </application>
 
 </manifest>

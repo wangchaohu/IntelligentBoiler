@@ -1,5 +1,6 @@
 package com.lapsen.intelligentboiler.presenter;
 
+import com.lapsen.intelligentboiler.activities.LoginActivity;
 import com.lapsen.intelligentboiler.activities.MainActivity;
 
 /**
@@ -23,5 +24,9 @@ public class MainPresenter {
              * */
             mainView.showDialog();
         }
+    }
+
+    public void startLoginActivity(){
+        mainView.toOtherActivity(LoginActivity.class);
     }
 }

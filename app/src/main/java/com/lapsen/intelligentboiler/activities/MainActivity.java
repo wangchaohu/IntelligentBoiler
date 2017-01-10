@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
         login_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //// TODO: 2017/1/4 登录 
+                mMainPresenter.startLoginActivity();
             }
         });
     }
@@ -95,6 +95,7 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             // TODO: 2017/1/4 选择演示锅炉
+                            toOtherActivity(SelectDemonstrateActivity.class);
                         }
                     });
             mDialog.create();
