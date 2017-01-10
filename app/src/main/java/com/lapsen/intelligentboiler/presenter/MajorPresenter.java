@@ -27,11 +27,11 @@ public class MajorPresenter {
     }
 
     private void setAdapter(){
+        getToOtherActivity();//得到跳转其他activity的acitivy数组
         mGridViewAdapter = new GridViewAdapter(mContext, getGridViewIvData(), getGridViewTvData(), new GridViewItemClickListener(){
             @Override
             public void onClickListener(int position) {
-//                majorView.toOtherActivity(otherActivitys[position]);
-                Toast.makeText(majorView, "ToOtherActivity,," + position, Toast.LENGTH_LONG).show();
+                majorView.toOtherActivity(otherActivitys[position]);
             }
         });
         majorView.setGridViewAdapter(mGridViewAdapter);

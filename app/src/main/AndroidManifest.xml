@@ -15,7 +15,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--主要activity-->
         <activity android:name=".activities.MajorActivity"/>
+        <!--实时监控activity-->
+        <activity android:name=".activities.RealTimeMonitoringActivity"/>
+        <!--数据分析activity-->
+        <activity android:name=".activities.DataAnalysisActivity"/>
+        <!--优化建议activity-->
+        <activity android:name=".activities.SuggestionActivity"/>
+        <!--维修保养activity-->
+        <activity android:name=".activities.MaintenanceActivity"/>
+        <!--安全报警activity-->
+        <activity android:name=".activities.SecurityAlarmActivity"/>
+        <!--个人中心activity-->
+        <activity android:name=".activities.PersonalCenterActivity"/>
     </application>
 
 </manifest>

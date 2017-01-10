@@ -1,5 +1,6 @@
 package com.lapsen.intelligentboiler.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
@@ -51,6 +52,6 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
      * */
     @Override
     public void toOtherActivity(Class otherActivity) {
-
+        startActivity(new Intent(MajorActivity.this, otherActivity));
     }
 }
