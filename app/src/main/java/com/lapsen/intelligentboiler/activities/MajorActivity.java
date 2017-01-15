@@ -2,18 +2,15 @@ package com.lapsen.intelligentboiler.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.SimpleAdapter;
 
 import com.lapsen.intelligentboiler.R;
-import com.lapsen.intelligentboiler.adapter.GridViewAdapter;
+import com.lapsen.intelligentboiler.commonadapter.CommonAdapter;
 import com.lapsen.intelligentboiler.base.BaseActivity;
 import com.lapsen.intelligentboiler.interfaces.MajorActivityInterface;
 import com.lapsen.intelligentboiler.presenter.MajorPresenter;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by lapsen_wang on 2017/1/5.
@@ -37,13 +34,21 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
      */
     private void initGridView() {
         mGridView = (GridView) findViewById(R.id.major_Gv);
+
+        //使用通用adapter，目前只能使用这个方法来完成item的点击，还不能在adapter中集成
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mMajorPresenter.setOtherActivitys(position);
+            }
+        });
         mMajorPresenter = new MajorPresenter(MajorActivity.this, this);
     }
 
     @Override
-    public void setGridViewAdapter(GridViewAdapter mGridViewAdapter) {
+    public void setGridViewAdapter(CommonAdapter adapter) {
         if (null != mGridView) {
-            mGridView.setAdapter(mGridViewAdapter);
+            mGridView.setAdapter(adapter);
         }
     }
 

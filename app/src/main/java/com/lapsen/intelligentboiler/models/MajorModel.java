@@ -8,6 +8,9 @@ import com.lapsen.intelligentboiler.activities.RealTimeMonitoringActivity;
 import com.lapsen.intelligentboiler.activities.SecurityAlarmActivity;
 import com.lapsen.intelligentboiler.activities.SuggestionActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by wangchaohu on 2017/1/9.
  */
@@ -28,4 +31,5 @@ public class MajorModel {
      * */
     public static Class[] otherActivities = {RealTimeMonitoringActivity.class, DataAnalysisActivity.class, SuggestionActivity.class,
             MaintenanceActivity.class, SecurityAlarmActivity.class, PersonalCenterActivity.class};
+
 }
