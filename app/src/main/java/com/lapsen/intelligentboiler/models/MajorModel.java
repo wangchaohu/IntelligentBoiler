@@ -25,11 +25,24 @@ public class MajorModel {
      * GridView跳转的Activities，横向排列，position依次为
      * 第一行   0，1，2
      * 第二行   3，4，5
-     *
+     * <p>
      * 实时监控，数据分析，优化建议，
      * 维修保养，安全报警，个人中心
-     * */
+     */
     public static Class[] otherActivities = {RealTimeMonitoringActivity.class, DataAnalysisActivity.class, SuggestionActivity.class,
             MaintenanceActivity.class, SecurityAlarmActivity.class, PersonalCenterActivity.class};
 
+
+    public static List<Integer> images;
+
+    public static List<Integer> getImages() {
+        if (null != images) {
+            images = null;
+        }
+        images = new ArrayList<>();
+        for (int img : icons) {
+            images.add(img);
+        }
+        return images;
+    }
 }

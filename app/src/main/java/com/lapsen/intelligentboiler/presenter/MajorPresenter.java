@@ -1,14 +1,21 @@
 package com.lapsen.intelligentboiler.presenter;
 
 import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.bigkoo.convenientbanner.ConvenientBanner;
+import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.bigkoo.convenientbanner.holder.Holder;
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.activities.MajorActivity;
 import com.lapsen.intelligentboiler.commonadapter.CommonAdapter;
 import com.lapsen.intelligentboiler.commonadapter.ViewHolder;
 import com.lapsen.intelligentboiler.models.MajorModel;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by wangchaohu on 2017/1/6.
@@ -27,6 +34,9 @@ public class MajorPresenter {
         setAdapter();
     }
 
+    /**
+     * gridView
+     * */
     private void setAdapter() {
         getToOtherActivity();//得到跳转其他activity的acitivy数组
 
@@ -37,6 +47,38 @@ public class MajorPresenter {
                 helper.setImg(R.id.major_grid_Iv, getGridViewIvData()[position]);
             }
         });
+    }
+
+    /**
+     * 轮播图片
+     * */
+    public void setPages(ConvenientBanner convenientBanner){
+        convenientBanner.setPages(new CBViewHolderCreator<LocalImageHolderView>() {
+            @Override
+            public LocalImageHolderView createHolder() {
+                return new LocalImageHolderView();
+            }
+        }, getImages())
+        .setPageIndicator(new int[]{R.drawable.ic_page_indicator, R.drawable.ic_page_indicator_focused})
+                .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
+    }
+
+    /**
+     * 轮播图片辅助类
+     * */
+    class LocalImageHolderView implements Holder<Integer>{
+        private ImageView imageView;
+        @Override
+        public View createView(Context context) {
+            imageView = new ImageView(context);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            return imageView;
+        }
+
+        @Override
+        public void UpdateUI(Context context, int position, Integer data) {
+            imageView.setImageResource(data);
+        }
     }
 
 
@@ -72,5 +114,12 @@ public class MajorPresenter {
      * */
     public void setOtherActivitys(int position){
         majorView.toOtherActivity(otherActivitys[position]);
+    }
+
+    /**
+     * 得到轮播图片资源
+     * */
+    private List<Integer> getImages(){
+        return ( MajorModel.getImages())== null ? null : MajorModel.getImages();
     }
 }
