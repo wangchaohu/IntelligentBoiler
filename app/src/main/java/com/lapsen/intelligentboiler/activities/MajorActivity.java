@@ -2,9 +2,16 @@ package com.lapsen.intelligentboiler.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.commonadapter.CommonAdapter;
@@ -24,6 +31,11 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
     private GridView mGridView;
     private ConvenientBanner convenientBanner;
 
+    private LinearLayout mToolBar;
+    private TextView title_Tv;
+    private ImageButton return_Btn;
+    private ViewStub choice_Btn;
+
     @Override
     public void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_major);
@@ -31,6 +43,46 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
         mMajorPresenter = new MajorPresenter(MajorActivity.this, this);
         initGridView();
         initConvenientBanner();
+    }
+
+    /**
+     * 重写initToolBar
+     * <p>
+     * 将choiceButton显示出来
+     */
+    @Override
+    public void initToolBar(String title) {
+        mToolBar = (LinearLayout) findViewById(R.id.toolBar);
+        title_Tv = (TextView) findViewById(R.id.title_tv);
+        return_Btn = (ImageButton) findViewById(R.id.btn_return);
+        return_Btn.setVisibility(View.GONE);
+        choice_Btn = (ViewStub) findViewById(R.id.viewStub);
+
+        if (null != mToolBar) {
+            mToolBar.setVisibility(View.VISIBLE);
+        }
+        if (null != title_Tv) {
+            title_Tv.setText(title);
+        }
+        if (null != choice_Btn) {
+            choice_Btn.setOnInflateListener(new ViewStub.OnInflateListener() {
+                @Override
+                public void onInflate(ViewStub stub, View inflated) {
+                    inflated.findViewById(R.id.btn_choice).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(MajorActivity.this, "前往选择锅炉", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+        }
+        /**如果viewStub已经被撑开，捕获异常，让其显示*/
+        try {
+            choice_Btn.inflate();
+        } catch (Exception e) {
+            choice_Btn.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
