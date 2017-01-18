@@ -6,4 +6,57 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar"
         android:visibility="gone" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/locateplace_text"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+    <LinearLayout
+        android:id="@+id/area_ll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="#ccc"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/project_text"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+    <LinearLayout
+        android:id="@+id/project_ll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="#ccc"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/monitor_text"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+    <LinearLayout
+        android:id="@+id/monitorboiler_ll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+    </LinearLayout>
 </LinearLayout>

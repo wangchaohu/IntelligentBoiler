@@ -22,5 +22,5 @@
         android:textAlignment="center"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:text="选择锅炉"/>
+        android:text="@string/choiceboiler_text"/>
 </FrameLayout>
