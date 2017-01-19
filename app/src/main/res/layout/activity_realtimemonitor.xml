@@ -6,4 +6,19 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar"
         android:visibility="gone" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/text_bg"/>
+    <GridView
+        android:id="@+id/grid_view_realtime"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:numColumns="2"></GridView>
 </LinearLayout>
