@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/realtime_grid_Iv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:layout_marginLeft="16dp"
         android:src="@mipmap/ic_launcher"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="3"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center"
+
+        >
         <TextView
             android:id="@+id/realtime1_grid_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:text="你好"/>
         <TextView
             android:id="@+id/realtime2_grid_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:text="hello"/>
         <TextView
             android:id="@+id/realtime3_grid_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_alignParentLeft="true" android:layout_centerVertical="true"
             android:text="world"/>
     </LinearLayout>
 

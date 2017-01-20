@@ -20,5 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.5"
+        android:gravity="center"
+        android:layout_marginTop="10.0dip"
+        android:horizontalSpacing="30.0dip"
+        android:verticalSpacing="15.0dip"
         android:numColumns="2"></GridView>
 </LinearLayout>
