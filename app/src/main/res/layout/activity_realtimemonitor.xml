@@ -13,7 +13,7 @@
         android:layout_weight="1"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="@dimen/x5"
         android:background="@color/text_bg"/>
     <GridView
         android:id="@+id/grid_view_realtime"
@@ -21,8 +21,8 @@
         android:layout_height="0dp"
         android:layout_weight="1.5"
         android:gravity="center"
-        android:layout_marginTop="10.0dip"
-        android:horizontalSpacing="30.0dip"
-        android:verticalSpacing="15.0dip"
+        android:layout_marginTop="@dimen/x10"
+        android:horizontalSpacing="@dimen/x30"
+        android:verticalSpacing="@dimen/x15"
         android:numColumns="2"></GridView>
 </LinearLayout>

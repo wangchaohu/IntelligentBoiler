@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="@dimen/x50"
     android:background="@color/colorPrimary">
 <ImageButton
     android:id="@+id/btn_return"
@@ -12,8 +12,8 @@
     android:src="@drawable/return_icon"
     android:layout_gravity="center_vertical"
     android:background="#00000000"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingLeft="@dimen/x16"
+    android:paddingRight="@dimen/x16"
     />
     <ViewStub
         android:id="@+id/viewStub"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="标题"
         android:textColor="#ffffff"
-        android:layout_marginLeft="16dp"
-        android:textSize="20dp"
+        android:layout_marginLeft="@dimen/x16"
+        android:textSize="@dimen/t2"
         android:layout_gravity="center"/>
 </LinearLayout>

@@ -12,8 +12,8 @@
         android:layout_weight="2"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="16dp"
-        android:layout_marginLeft="16dp"
+        android:padding="@dimen/x16"
+        android:layout_marginLeft="@dimen/x16"
         android:src="@mipmap/ic_launcher"/>
 
     <LinearLayout
@@ -28,7 +28,7 @@
             android:id="@+id/realtime1_grid_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="@dimen/t1"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:text="你好"/>
@@ -36,7 +36,7 @@
             android:id="@+id/realtime2_grid_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="@dimen/t1"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:text="hello"/>
@@ -44,7 +44,7 @@
             android:id="@+id/realtime3_grid_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="@dimen/t1"
             android:layout_alignParentLeft="true" android:layout_centerVertical="true"
             android:text="world"/>
     </LinearLayout>
