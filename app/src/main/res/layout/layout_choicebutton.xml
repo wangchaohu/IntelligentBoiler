@@ -3,6 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
+
+
     <ImageButton
         android:id="@+id/btn_choice"
         android:layout_width="wrap_content"
@@ -10,17 +13,14 @@
         android:src="@drawable/circle_icon"
         android:layout_gravity="center"
         android:background="#00000000"
-        android:paddingLeft="@dimen/x16"
-        android:paddingRight="@dimen/x16"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/t1"
+        android:textSize="8sp"
+        android:layout_gravity="center"
         android:textAlignment="center"
-        android:paddingLeft="@dimen/x16"
-        android:paddingRight="@dimen/x16"
         android:text="@string/choiceboiler_text"/>
 </FrameLayout>

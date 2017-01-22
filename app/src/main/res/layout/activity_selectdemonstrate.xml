@@ -10,53 +10,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/locateplace_text"
-        android:textSize="@dimen/t2"
-        android:layout_margin="@dimen/x10"/>
+        android:textSize="18sp"
+        android:layout_margin="5dp"/>
     <LinearLayout
         android:id="@+id/area_ll"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x50"
-        android:layout_margin="@dimen/x10"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
         android:orientation="horizontal">
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x2"
+        android:layout_height="3dp"
         android:background="#ccc"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/project_text"
-        android:textSize="@dimen/t2"
-        android:layout_margin="@dimen/x10"/>
+        android:textSize="18sp"
+        android:layout_margin="5dp"/>
     <LinearLayout
         android:id="@+id/project_ll"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x50"
-        android:layout_margin="@dimen/x10"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
         android:orientation="horizontal">
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x2"
+        android:layout_height="3dp"
         android:background="#ccc"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/monitor_text"
-        android:textSize="@dimen/t2"
-        android:layout_margin="10dp"/>
+        android:textSize="18sp"
+        android:layout_margin="5dp"/>
     <LinearLayout
         android:id="@+id/monitorboiler_ll"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x50"
-        android:layout_margin="@dimen/x10"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
         android:orientation="horizontal">
     </LinearLayout>
 </LinearLayout>

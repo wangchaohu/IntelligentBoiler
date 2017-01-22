@@ -71,7 +71,7 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
                     inflated.findViewById(R.id.btn_choice).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            toOtherActivity(SecurityAlarmActivity.class);
+                            toOtherActivity(SelectDemonstrateActivity.class);
                         }
                     });
                 }

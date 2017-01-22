@@ -4,23 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/grid_item_ll"
+    android:layout_margin="20dp"
     >
 
     <ImageView
         android:id="@+id/major_grid_Iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x16"
-        android:layout_marginBottom="@dimen/x16"
-        android:paddingTop="@dimen/x16"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="8dp"
         />
     <TextView
         android:id="@+id/major_grid_Tv"
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x16"
-        android:layout_marginBottom="@dimen/x16"
-        android:paddingBottom="@dimen/x16"/>
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="5dp"/>
 
 </LinearLayout>
