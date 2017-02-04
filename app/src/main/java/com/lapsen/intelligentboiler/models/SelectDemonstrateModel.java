@@ -5,6 +5,7 @@ package com.lapsen.intelligentboiler.models;
  */
 
 public class SelectDemonstrateModel {
-    String json_Data = "{\"status\": \"200\", \"result\": [{ \"city\": \"石家庄\", \"project\": [{ \"project\": \"演示\", \"MonitorBoiler\": [{ \"boiler1\": \"锅炉\",\"boiler2\": \"电磁炉\", \"boiler3\": \"电饭煲\"} ]}]},{ \"city\": \"石家庄\", \"project\": [{ \"project\": \"演示\", \"MonitorBoiler\": [{ \"boiler1\": \"锅炉\",\"boiler2\":\"电磁炉\", \"boiler3\": \"电饭煲\"} ]}]}]}";
+    String json_Data = "{\"status\": \"200\", \"result\": [{\"city\": \"石家庄\",\"project\": [{\"project\": \"演示\",\"MonitorBoiler\": [{\"boiler\": \"锅炉\"},{\"boiler\": \"锅炉2\"},{\"boiler\": \"锅炉3\"}]}]},{\"city\": \"石家庄\",\"project\": [ {\"project\": \"演示\",\"MonitorBoiler\": [ {\"boiler\": \"锅炉\" },{\"boiler\": \"锅炉2\" },{\"boiler\": \"锅炉3\" }]}]}]}}";
+
 }
 

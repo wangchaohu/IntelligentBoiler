@@ -9,7 +9,7 @@ import java.util.List;
 public class JsonBean {
     /**
      * status : 200
-     * result : [{"city":"石家庄","project":[{"project":"演示","MonitorBoiler":[{"boiler1":"锅炉","boiler2":"电磁炉","boiler3":"电饭煲"}]}]},{"city":"石家庄","project":[{"project":"演示","MonitorBoiler":[{"boiler1":"锅炉","boiler2":"电磁炉","boiler3":"电饭煲"}]}]}]
+     * result : [{"city":"石家庄","project":[{"project":"演示","MonitorBoiler":[{"boiler":"锅炉"},{"boiler":"锅炉2"},{"boiler":"锅炉3"}]}]},{"city":"石家庄","project":[{"project":"演示","MonitorBoiler":[{"boiler":"锅炉"},{"boiler":"锅炉2"},{"boiler":"锅炉3"}]}]}]
      */
 
     private String status;
@@ -34,7 +34,7 @@ public class JsonBean {
     public static class ResultBean {
         /**
          * city : 石家庄
-         * project : [{"project":"演示","MonitorBoiler":[{"boiler1":"锅炉","boiler2":"电磁炉","boiler3":"电饭煲"}]}]
+         * project : [{"project":"演示","MonitorBoiler":[{"boiler":"锅炉"},{"boiler":"锅炉2"},{"boiler":"锅炉3"}]}]
          */
 
         private String city;
@@ -59,7 +59,7 @@ public class JsonBean {
         public static class ProjectBean {
             /**
              * project : 演示
-             * MonitorBoiler : [{"boiler1":"锅炉","boiler2":"电磁炉","boiler3":"电饭煲"}]
+             * MonitorBoiler : [{"boiler":"锅炉"},{"boiler":"锅炉2"},{"boiler":"锅炉3"}]
              */
 
             private String project;
@@ -83,37 +83,17 @@ public class JsonBean {
 
             public static class MonitorBoilerBean {
                 /**
-                 * boiler1 : 锅炉
-                 * boiler2 : 电磁炉
-                 * boiler3 : 电饭煲
+                 * boiler : 锅炉
                  */
 
-                private String boiler1;
-                private String boiler2;
-                private String boiler3;
+                private String boiler;
 
-                public String getBoiler1() {
-                    return boiler1;
+                public String getBoiler() {
+                    return boiler;
                 }
 
-                public void setBoiler1(String boiler1) {
-                    this.boiler1 = boiler1;
-                }
-
-                public String getBoiler2() {
-                    return boiler2;
-                }
-
-                public void setBoiler2(String boiler2) {
-                    this.boiler2 = boiler2;
-                }
-
-                public String getBoiler3() {
-                    return boiler3;
-                }
-
-                public void setBoiler3(String boiler3) {
-                    this.boiler3 = boiler3;
+                public void setBoiler(String boiler) {
+                    this.boiler = boiler;
                 }
             }
         }
