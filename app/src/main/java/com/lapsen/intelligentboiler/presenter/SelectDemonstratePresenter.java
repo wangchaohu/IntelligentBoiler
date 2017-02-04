@@ -30,6 +30,8 @@ public class SelectDemonstratePresenter {
             @Override
             public void onClick(View v) {
                 showProject();
+                v.setBackgroundResource(R.drawable.selected);
+                v.setClickable(false);
             }
         });
         selectDemonstrateView.showPlace(view);
@@ -41,6 +43,8 @@ public class SelectDemonstratePresenter {
             @Override
             public void onClick(View v) {
                 showMonitorBoiler();
+                v.setClickable(false);
+                v.setBackgroundResource(R.drawable.selected);
             }
         });
         selectDemonstrateView.showProject(view);
@@ -48,6 +52,13 @@ public class SelectDemonstratePresenter {
 
     private void showMonitorBoiler(){
         View view = addButton();
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               //点击项目之后，跳转到主Activity
+                v.setBackgroundResource(R.drawable.selected);
+            }
+        });
         selectDemonstrateView.showMonitorBoiler(view);
     }
 
@@ -58,7 +69,7 @@ public class SelectDemonstratePresenter {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         button.setPadding(6, 0, 6, 0);
         button.setText("你好");
-        button.setBackgroundResource(R.drawable.selector_button);
+        button.setBackgroundResource(R.drawable.unselected);
         button.setLayoutParams(params);
         return button;
     }
