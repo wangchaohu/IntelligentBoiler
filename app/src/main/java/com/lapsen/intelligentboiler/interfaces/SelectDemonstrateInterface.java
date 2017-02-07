@@ -10,5 +10,6 @@ public interface SelectDemonstrateInterface {
     public void showPlace(View childView);
     public void showProject(View childView);
     public void showMonitorBoiler(View childView);
+    public void clearLayout(String type);
 
 }

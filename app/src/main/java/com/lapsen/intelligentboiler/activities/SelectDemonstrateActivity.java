@@ -1,6 +1,7 @@
 package com.lapsen.intelligentboiler.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -28,19 +29,19 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
         initPresenter();
     }
 
-    private void init(){
+    private void init() {
         area = (LinearLayout) findViewById(R.id.area_ll);
         project = (LinearLayout) findViewById(R.id.project_ll);
         monitor = (LinearLayout) findViewById(R.id.monitorboiler_ll);
     }
 
-    private void initPresenter(){
+    private void initPresenter() {
         presenter = new SelectDemonstratePresenter(this, this);
     }
 
     @Override
     public void showPlace(View childView) {
-        area.addView(childView);
+            area.addView(childView);
     }
 
     @Override
@@ -53,5 +54,35 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
         monitor.addView(childView);
     }
 
+    /**
+     * 清除布局中的childView
+     * */
+    @Override
+    public void clearLayout(String type){
+        if ("place".equals(type)){                 //判断第一级布局中是否有子view，有的话就清除全部
+            if (area.getChildCount()>0){
+                area.removeAllViews();
+            }
+            if (project.getChildCount()>0){
+                project.removeAllViews();
+            }
+            if (monitor.getChildCount() > 0){
+                monitor.removeAllViews();
+            }
+        }
+        if ("project".equals(type)){                    //判断第二级布局中是否有子view，有的话就清除全部
+            if (project.getChildCount()>0){
+                project.removeAllViews();
+            }
+            if (monitor.getChildCount() > 0){
+                monitor.removeAllViews();
+            }
+        }
+        if ("boiler".equals(type)){                  //判断第三级布局中是否有子view，有的话就清除全部
+            if (monitor.getChildCount()>0){
+                monitor.removeAllViews();
+            }
+        }
+    }
 
 }
