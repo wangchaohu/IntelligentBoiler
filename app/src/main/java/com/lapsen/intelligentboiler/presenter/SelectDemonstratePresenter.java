@@ -1,6 +1,7 @@
 package com.lapsen.intelligentboiler.presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.lapsen.intelligentboiler.activities.SelectDemonstrateActivity;
 import com.lapsen.intelligentboiler.beans.JsonBean;
 import com.lapsen.intelligentboiler.models.SelectDemonstrateModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +28,7 @@ public class SelectDemonstratePresenter {
     private List<JsonBean.ResultBean> city_lists;   //第一级
     private List<JsonBean.ResultBean.ProjectBean> project_lists;  //第二级
     private List<JsonBean.ResultBean.ProjectBean.MonitorBoilerBean> boiler_lists; //第三极
+    private ArrayList<Button> btnLists;
 
     public SelectDemonstratePresenter(Context context, SelectDemonstrateActivity view) {
         this.mContext = context;
@@ -58,16 +61,15 @@ public class SelectDemonstratePresenter {
      * 避免点击一个按钮，上一次点击添加的child view依然在布局中
      * */
     private void showPlace() {
-        selectDemonstrateView.clearLayout("place");           //清除布局
         if (null != city_lists && !city_lists.isEmpty()) {
-
+//            btnLists = new ArrayList<>();
             for (int i = 0; i < city_lists.size(); i++) {
                 View view = addButton(city_lists.get(i).getCity(), i);
+//                btnLists.add((Button) view);
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         showProject(city_lists, (int) v.getTag());
-                        v.setBackgroundResource(R.drawable.selected);
                     }
                 });
                 selectDemonstrateView.showPlace(view);
@@ -77,20 +79,15 @@ public class SelectDemonstratePresenter {
 
     private void showProject(List<JsonBean.ResultBean> city_lists, int n) {
 
-        if (null != project_lists) {
-            if (!project_lists.isEmpty()) {
-                project_lists.clear();
-            }
-        }
         project_lists = city_lists.get(n).getProject();
         selectDemonstrateView.clearLayout("project");
         for (int i = 0; i < project_lists.size(); i++) {
-            View view = addButton(project_lists.get(i).getProject(), i);
+            final View view = addButton(project_lists.get(i).getProject(), i);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     showMonitorBoiler(project_lists, (int) v.getTag());
-                    v.setBackgroundResource(R.drawable.selected);
+//                    v.setBackgroundResource(R.drawable.selected);
                 }
             });
             selectDemonstrateView.showProject(view);
@@ -98,11 +95,6 @@ public class SelectDemonstratePresenter {
     }
 
     private void showMonitorBoiler(List<JsonBean.ResultBean.ProjectBean> project_lists, int n) {
-        if (null != boiler_lists) {
-            if (!boiler_lists.isEmpty()) {
-                boiler_lists.clear();
-            }
-        }
         selectDemonstrateView.clearLayout("boiler");
         boiler_lists = project_lists.get(n).getMonitorBoiler();
         for (int i = 0; i < boiler_lists.size(); i++) {
@@ -111,7 +103,7 @@ public class SelectDemonstratePresenter {
                 @Override
                 public void onClick(View v) {
                     //点击项目之后，跳转到主Activity
-                    v.setBackgroundResource(R.drawable.selected);
+//                    v.setBackgroundResource(R.drawable.selected);
                 }
             });
             selectDemonstrateView.showMonitorBoiler(view);
@@ -121,14 +113,26 @@ public class SelectDemonstratePresenter {
 
 
     private View addButton(String content, int i) {
-
         Button button = new Button(mContext);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.weight = 1;
+        params.setMargins(5,5,5,5);
         button.setTag(i);
         button.setText(content);
-        button.setBackgroundResource(R.drawable.unselected);
+        button.setPadding(5,5,5,5);
+        button.setBackgroundResource(R.drawable.selector_button);
         button.setLayoutParams(params);
         return button;
+    }
+
+    /**改变按钮背景颜色*/
+    private void setBtnBg(ArrayList<Button> btnLists, String curBtnTag){
+        for (int i = 0; i < btnLists.size(); i++){
+            if (btnLists.get(i).getTag() == curBtnTag){
+                btnLists.get(Integer.parseInt(curBtnTag)).setBackgroundResource(R.drawable.btn_select);
+            }else {
+                btnLists.get(Integer.parseInt(curBtnTag)).setBackgroundResource(R.drawable.btn_unselect);
+            }
+        }
     }
 }

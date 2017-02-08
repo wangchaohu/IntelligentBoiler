@@ -59,17 +59,6 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
      * */
     @Override
     public void clearLayout(String type){
-        if ("place".equals(type)){                 //判断第一级布局中是否有子view，有的话就清除全部
-            if (area.getChildCount()>0){
-                area.removeAllViews();
-            }
-            if (project.getChildCount()>0){
-                project.removeAllViews();
-            }
-            if (monitor.getChildCount() > 0){
-                monitor.removeAllViews();
-            }
-        }
         if ("project".equals(type)){                    //判断第二级布局中是否有子view，有的话就清除全部
             if (project.getChildCount()>0){
                 project.removeAllViews();
