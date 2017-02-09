@@ -89,7 +89,6 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
      * 初始化GridView
      */
     private void initGridView() {
-        Log.d("wch", "initGridView: ");
         mGridView = (GridView) findViewById(R.id.major_Gv);
         //使用通用adapter，目前只能使用这个方法来完成item的点击，还不能在adapter中集成
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

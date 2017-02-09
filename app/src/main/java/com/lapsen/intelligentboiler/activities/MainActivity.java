@@ -74,6 +74,7 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
 
     @Override
     public void toOtherActivity(Class otherActivity) {
+        this.finish();
         startActivity(new Intent(MainActivity.this, otherActivity));
     }
 

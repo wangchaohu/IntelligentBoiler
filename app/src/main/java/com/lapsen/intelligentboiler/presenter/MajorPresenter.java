@@ -1,6 +1,7 @@
 package com.lapsen.intelligentboiler.presenter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -30,8 +31,8 @@ public class MajorPresenter {
     public MajorPresenter(Context mContext, MajorActivity majorView) {
         this.mContext = mContext;
         this.majorView = majorView;
-
         setAdapter();
+        getIntent();
     }
 
     /**
@@ -49,6 +50,11 @@ public class MajorPresenter {
         });
     }
 
+    /**得到从其他activity传回来的intent*/
+    private void getIntent(){
+        String s = majorView.getIntent().getExtras().getString("BoilerType");
+        Log.d("wch", "getIntent: " + s);
+    }
     /**
      * 轮播图片
      * */

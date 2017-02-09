@@ -1,5 +1,6 @@
 package com.lapsen.intelligentboiler.interfaces;
 
+import android.content.Intent;
 import android.view.View;
 
 /**
@@ -11,5 +12,6 @@ public interface SelectDemonstrateInterface {
     public void showProject(View childView);
     public void showMonitorBoiler(View childView);
     public void clearLayout(String type);
+    public void toOtherActivity(Intent intent);
 
 }

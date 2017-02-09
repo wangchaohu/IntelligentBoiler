@@ -1,6 +1,7 @@
 package com.lapsen.intelligentboiler.presenter;
 
 import android.content.Context;
+
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +29,9 @@ public class SelectDemonstratePresenter {
     private List<JsonBean.ResultBean> city_lists;   //第一级
     private List<JsonBean.ResultBean.ProjectBean> project_lists;  //第二级
     private List<JsonBean.ResultBean.ProjectBean.MonitorBoilerBean> boiler_lists; //第三极
-    private ArrayList<Button> btnLists;
+
+    private ArrayList<Button> btnLists;   //第一级按钮集合
+    private ArrayList<Button> btn2Lists;   //第二级按钮集合
 
     public SelectDemonstratePresenter(Context context, SelectDemonstrateActivity view) {
         this.mContext = context;
@@ -62,10 +65,10 @@ public class SelectDemonstratePresenter {
      * */
     private void showPlace() {
         if (null != city_lists && !city_lists.isEmpty()) {
-//            btnLists = new ArrayList<>();
+            btnLists = new ArrayList<>();
             for (int i = 0; i < city_lists.size(); i++) {
                 View view = addButton(city_lists.get(i).getCity(), i);
-//                btnLists.add((Button) view);
+                btnLists.add((Button) view);
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -74,20 +77,22 @@ public class SelectDemonstratePresenter {
                 });
                 selectDemonstrateView.showPlace(view);
             }
+
         }
     }
 
     private void showProject(List<JsonBean.ResultBean> city_lists, int n) {
-
+        setBtnBg(btnLists, n);    //更改第一级按钮背景颜色
         project_lists = city_lists.get(n).getProject();
         selectDemonstrateView.clearLayout("project");
+        btn2Lists = new ArrayList<>();
         for (int i = 0; i < project_lists.size(); i++) {
-            final View view = addButton(project_lists.get(i).getProject(), i);
+            View view = addButton(project_lists.get(i).getProject(), i);
+            btn2Lists.add((Button) view);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     showMonitorBoiler(project_lists, (int) v.getTag());
-//                    v.setBackgroundResource(R.drawable.selected);
                 }
             });
             selectDemonstrateView.showProject(view);
@@ -95,6 +100,7 @@ public class SelectDemonstratePresenter {
     }
 
     private void showMonitorBoiler(List<JsonBean.ResultBean.ProjectBean> project_lists, int n) {
+        setBtnBg(btn2Lists, n);   //更改第二级按钮的背景颜色
         selectDemonstrateView.clearLayout("boiler");
         boiler_lists = project_lists.get(n).getMonitorBoiler();
         for (int i = 0; i < boiler_lists.size(); i++) {
@@ -102,8 +108,9 @@ public class SelectDemonstratePresenter {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //点击项目之后，跳转到主Activity
-//                    v.setBackgroundResource(R.drawable.selected);
+                    Intent intent = new Intent();
+                    intent.putExtra("BoilerType", ((Button)v).getText());
+                    selectDemonstrateView.toOtherActivity(intent);
                 }
             });
             selectDemonstrateView.showMonitorBoiler(view);
@@ -126,12 +133,13 @@ public class SelectDemonstratePresenter {
     }
 
     /**改变按钮背景颜色*/
-    private void setBtnBg(ArrayList<Button> btnLists, String curBtnTag){
+    private void setBtnBg(ArrayList<Button> btnLists, int curBtnTag){
+
         for (int i = 0; i < btnLists.size(); i++){
-            if (btnLists.get(i).getTag() == curBtnTag){
-                btnLists.get(Integer.parseInt(curBtnTag)).setBackgroundResource(R.drawable.btn_select);
+            if ((int)btnLists.get(i).getTag() == curBtnTag){
+                btnLists.get(i).setBackgroundResource(R.drawable.btn_select);
             }else {
-                btnLists.get(Integer.parseInt(curBtnTag)).setBackgroundResource(R.drawable.btn_unselect);
+                btnLists.get(i).setBackgroundResource(R.drawable.btn_unselect);
             }
         }
     }

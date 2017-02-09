@@ -1,5 +1,6 @@
 package com.lapsen.intelligentboiler.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,4 +75,11 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
         }
     }
 
+    @Override
+    public void toOtherActivity(Intent intent) {
+
+        intent.setClass(SelectDemonstrateActivity.this, MajorActivity.class);
+        this.finish();
+        startActivity(intent);
+    }
 }
