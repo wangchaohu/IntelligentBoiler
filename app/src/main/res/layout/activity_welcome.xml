@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lapsen.intelligentboiler.customview.CustomLapsenView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lapsenView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    ></com.lapsen.intelligentboiler.customview.CustomLapsenView>
