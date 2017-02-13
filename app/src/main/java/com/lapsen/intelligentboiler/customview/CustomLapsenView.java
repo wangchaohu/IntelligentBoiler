@@ -1,6 +1,7 @@
 package com.lapsen.intelligentboiler.customview;
 
 import android.animation.Animator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
@@ -63,7 +64,7 @@ public class CustomLapsenView extends LinearLayout {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-//                Log.d("wch", "run: ");
+                ((Activity)mContext).finish();
                 mContext.startActivity(new Intent(mContext, MainActivity.class));
             }
         }, 3000);
