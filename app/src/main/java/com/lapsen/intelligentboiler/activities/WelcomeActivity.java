@@ -1,6 +1,8 @@
 package com.lapsen.intelligentboiler.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.base.BaseActivity;
@@ -19,5 +21,9 @@ public class WelcomeActivity extends BaseActivity {
         setContentView(R.layout.activity_welcome);
 
         customLapsenView = (CustomLapsenView) findViewById(R.id.lapsenView);
+
+        customLapsenView.setParmer(WelcomeActivity.this);
     }
+
+
 }

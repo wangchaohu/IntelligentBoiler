@@ -1,20 +1,25 @@
 package com.lapsen.intelligentboiler.customview;
 
+import android.animation.Animator;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.model.LottieComposition;
+import com.lapsen.intelligentboiler.activities.MainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by lapsen_wang on 2017/2/10/0010.
@@ -30,6 +35,7 @@ public class CustomLapsenView extends LinearLayout {
     @Nullable
     private LottieAnimationView cursorView;
 
+
     public CustomLapsenView(Context context) {
         super(context);
         init();
@@ -44,12 +50,24 @@ public class CustomLapsenView extends LinearLayout {
         super(context, attrs, defStyleAttr);
         init();
     }
+    private Context mContext;
+    public void setParmer(Context context){
+        this.mContext = context;
+    }
 
     private void init() {
 
         for (int i = 0; i < lapsen.length; i++) {
-                start(i);
+            start(i);
         }
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+//                Log.d("wch", "run: ");
+                mContext.startActivity(new Intent(mContext, MainActivity.class));
+            }
+        }, 3000);
+
     }
 
     private void start(int i) {
@@ -138,12 +156,5 @@ public class CustomLapsenView extends LinearLayout {
             removeView(views.get(position));
             views.remove(position);
         }
-    }
-
-    private boolean isEnd(){
-        if ( !cursorView.isAnimating()){
-            return true;
-        }
-        return false;
     }
 }
