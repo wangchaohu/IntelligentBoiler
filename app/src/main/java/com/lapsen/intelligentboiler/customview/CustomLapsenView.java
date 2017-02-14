@@ -1,12 +1,11 @@
 package com.lapsen.intelligentboiler.customview;
 
-import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
+
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
