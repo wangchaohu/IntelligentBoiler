@@ -6,4 +6,68 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar"
         android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/year_Tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:background="@color/text_bg"
+                android:clickable="true"
+                android:text="@string/year_text"/>
+            <TextView
+                android:id="@+id/month_Tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:background="@color/text_bg"
+                android:clickable="true"
+                android:text="@string/month_text"/>
+            <TextView
+                android:id="@+id/day_Tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:background="@color/text_bg"
+                android:clickable="true"
+                android:text="@string/day_text"/>
+            <TextView
+                android:id="@+id/today_Tv"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:background="@color/text_bg"
+                android:clickable="true"
+                android:text="@string/today_text"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"></LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>
