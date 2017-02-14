@@ -21,8 +21,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     private LinearLayout mToolBar;
     private TextView title_Tv;
     private ImageButton return_Btn;
-
-    private long firstTime = 0;  //第一次点击返回的时间
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,23 +47,5 @@ public abstract class BaseActivity extends AppCompatActivity {
                 }
             });
         }
-    }
-
-
-    /**点击返回键2次退出app*/
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
-            long secondTime = System.currentTimeMillis();
-            if (secondTime - firstTime > 2000){
-                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-                firstTime = secondTime;
-                return true;
-            }else {
-                System.exit(0);
-            }
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

@@ -3,6 +3,7 @@ package com.lapsen.intelligentboiler.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewStub;
@@ -35,6 +36,8 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
     private TextView title_Tv;
     private ImageButton return_Btn;
     private ViewStub choice_Btn;
+
+    private long firstTime = 0;  //第一次点击返回的时间
 
     @Override
     public void initViews(Bundle savedInstanceState) {
@@ -122,5 +125,22 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
     @Override
     public void toOtherActivity(Class otherActivity) {
         startActivity(new Intent(MajorActivity.this, otherActivity));
+    }
+
+    /**再按一次退出程序*/
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+            long secondTime = System.currentTimeMillis();
+            if (secondTime - firstTime > 2000){
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                firstTime = secondTime;
+                return true;
+            }else {
+                System.exit(0);
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

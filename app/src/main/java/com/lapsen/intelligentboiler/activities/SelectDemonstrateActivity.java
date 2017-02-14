@@ -77,7 +77,6 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
 
     @Override
     public void toOtherActivity(Intent intent) {
-
         intent.setClass(SelectDemonstrateActivity.this, MajorActivity.class);
         this.finish();
         startActivity(intent);

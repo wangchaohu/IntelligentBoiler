@@ -75,7 +75,11 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
     @Override
     public void toOtherActivity(Class otherActivity) {
         this.finish();
-        startActivity(new Intent(MainActivity.this, otherActivity));
+        Intent intent = new Intent(MainActivity.this, otherActivity);
+
+        //将锅炉信息传入intent，传递到MajorActivity
+        intent.putExtra("BoilerType","演示锅炉");
+        startActivity(intent);
     }
 
     @Override
@@ -87,15 +91,12 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
                     .setPositiveButton(R.string.dialog_text_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
-                            // TODO: 2017/1/4  直接前往已选择的锅炉
                             toOtherActivity(MajorActivity.class);
                         }
                     })
                     .setNegativeButton(R.string.dialog_text_no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO: 2017/1/4 选择演示锅炉
                             toOtherActivity(SelectDemonstrateActivity.class);
                         }
                     });
