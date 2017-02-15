@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <include
         android:id="@+id/toolBar"
         layout="@layout/toolbar"
@@ -13,61 +15,74 @@
         android:layout_weight="1">
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
                 android:id="@+id/year_Tv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_margin="1dp"
+                android:layout_weight="1"
                 android:background="@color/text_bg"
                 android:clickable="true"
-                android:text="@string/year_text"/>
+                android:gravity="center"
+                android:text="@string/year_text" />
+
             <TextView
                 android:id="@+id/month_Tv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_margin="1dp"
+                android:layout_weight="1"
                 android:background="@color/text_bg"
                 android:clickable="true"
-                android:text="@string/month_text"/>
+                android:gravity="center"
+                android:text="@string/month_text" />
+
             <TextView
                 android:id="@+id/day_Tv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_margin="1dp"
+                android:layout_weight="1"
                 android:background="@color/text_bg"
                 android:clickable="true"
-                android:text="@string/day_text"/>
+                android:gravity="center"
+                android:text="@string/day_text" />
+
             <TextView
                 android:id="@+id/today_Tv"
                 android:layout_width="0dp"
-                android:gravity="center"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_margin="1dp"
+                android:layout_weight="1"
                 android:background="@color/text_bg"
                 android:clickable="true"
-                android:text="@string/today_text"/>
+                android:gravity="center"
+                android:text="@string/today_text" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"></LinearLayout>
+
+
+
+            <GridView
+                android:id="@+id/analysis_Gv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:numColumns="2"
+                android:gravity="center"
+                android:padding="10dp"
+                />
 
     </LinearLayout>
 </LinearLayout>
