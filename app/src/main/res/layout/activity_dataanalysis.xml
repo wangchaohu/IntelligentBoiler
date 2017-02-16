@@ -13,6 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+        <lecho.lib.hellocharts.view.ColumnChartView
+            android:id="@+id/columnChartView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
@@ -61,7 +65,7 @@
                 android:text="@string/day_text" />
 
             <TextView
-                android:id="@+id/today_Tv"
+                android:id="@+id/hour_Tv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
@@ -69,7 +73,7 @@
                 android:background="@color/text_bg"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="@string/today_text" />
+                android:text="@string/hour_text" />
         </LinearLayout>
 
 

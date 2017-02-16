@@ -32,4 +32,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
 
     compile 'com.airbnb.android:lottie:1.0.1'      //lottie动画
-}
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+ }

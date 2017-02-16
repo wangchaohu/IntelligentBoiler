@@ -14,5 +14,5 @@
     <string name="year_text">年(Year)</string>
     <string name="month_text">月(Month)</string>
     <string name="day_text">日(Day)</string>
-    <string name="today_text">当日(Today)</string>
+    <string name="hour_text">小时(Hour)</string>
 </resources>
