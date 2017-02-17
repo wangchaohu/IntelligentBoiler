@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
 import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
@@ -26,9 +25,26 @@ public class DataAnalysisPresenter {
 
     private ColumnChartData data;
     private int numColumns = 0;   //控制列数
+    private String[] data_Gv = {};
 
     public void setDataAnalysisView(DataAnalysisActivity dataAnalysisView) {
         this.dataAnalysisView = dataAnalysisView;
+    }
+
+    private void getData(String type) {
+
+        if ("year".equals(type)) {
+            data_Gv = DataAnalysisModel.yearData_Gv_content;
+        }
+        if ("month".equals(type)) {
+            data_Gv = DataAnalysisModel.monthData_Gv_content;
+        }
+        if ("day".equals(type)) {
+            data_Gv = DataAnalysisModel.dayData_Gv_content;
+        }
+        if ("hour".equals(type)) {
+            data_Gv = DataAnalysisModel.hourData_Gv_content;
+        }
     }
 
     public void setAdapter() {
@@ -36,8 +52,10 @@ public class DataAnalysisPresenter {
             dataAnalysisView.setGridViewAdapter(new CommonAdapter(dataAnalysisView, 12, R.layout.item_dataanalysis_gridview) {
                 @Override
                 public void convert(ViewHolder helper, int position) {
-                    helper.setText(R.id.analysis_up_Tv, "锅炉平均出力");
-                    helper.setText(R.id.analysis_down_Tv, "52.56 MW");
+                    helper.setText(R.id.analysis_up_Tv, DataAnalysisModel.data_Gv_title[position]);
+                    if (data_Gv.length != 0) {
+                        helper.setText(R.id.analysis_down_Tv, data_Gv[position]);
+                    }
                 }
             });
         }
@@ -46,24 +64,27 @@ public class DataAnalysisPresenter {
     public void setChartData(String chartType) {
         float[] values = {};
         //判断显示哪种图标
-        if ("year".equals(chartType)){                  //年
+        if ("year".equals(chartType)) {                  //年
             numColumns = 12;
             values = DataAnalysisModel.yearData_Data;
-        }else if ("month".equals(chartType)){          //月
+
+        } else if ("month".equals(chartType)) {          //月
             values = DataAnalysisModel.monthData_Data;
-        }else if ("day".equals(chartType)){           //日
+        } else if ("day".equals(chartType)) {           //日
             values = DataAnalysisModel.dayData_Data;
-        }else if ("hour".equals(chartType)){         //小时
+        } else if ("hour".equals(chartType)) {         //小时
             values = DataAnalysisModel.hourData_Data;
         }
+        //得到下方GridView的在选择不同时间的数据
+        getData(chartType);
         numColumns = values.length;
         if (null != dataAnalysisView) {
-            dataAnalysisView.showChart(generateData( numColumns,values));
+            dataAnalysisView.showChart(generateData(numColumns, values));
         }
     }
 
     //填充数据
-    private ColumnChartData generateData(int num,float[] dataValues) {
+    private ColumnChartData generateData(int num, float[] dataValues) {
         int numSubcolumns = 1;  //表示每一列有几个数值
         List<Column> columns = new ArrayList<>();
         List<SubcolumnValue> values;

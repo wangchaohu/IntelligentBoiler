@@ -109,7 +109,7 @@ public class DataAnalysisActivity extends BaseActivity implements View.OnClickLi
                 break;
         }
         presenter.setChartData(type);
-
+        presenter.setAdapter();
     }
 
     /**适配器*/
