@@ -1,15 +1,19 @@
 package com.lapsen.intelligentboiler.models;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by lapsen_wang on 2017/2/16/0016.
  */
 
 public class DataAnalysisModel {
 
-    public static  float[] yearData_Data = {2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30};    //y轴上数据
-    public static  float[] monthData_Data = {2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30,2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30,2.0f, 3.0f, 5, 15, 6, 6, 34, 54};    //y轴上数据
-    public static  float[] dayData_Data = {2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30, 2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30};    //y轴上数据
-    public static  float[] hourData_Data = {2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30, 2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30, 2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30, 2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30, 2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30, 2.0f, 3.0f, 5, 15, 6, 6, 34, 54, 23, 84, 8, 30};    //y轴上数据
+    public static List<Float> yearData_Data = Arrays.asList(2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f);    //y轴上数据
+    public static  List<Float> monthData_Data = Arrays.asList(2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f,2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f,2.0f, 3.0f, 5f, 15f, 6f, 6f);    //y轴上数据
+    public static  List<Float> dayData_Data = Arrays.asList(2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f, 2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f);    //y轴上数据
+    public static  List<Float> hourData_Data = Arrays.asList(2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f, 2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f,2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f, 2.0f, 3.0f,5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f, 2.0f, 3.0f, 5f, 15f, 6f, 6f, 34f, 54f, 23f, 84f, 8f, 30f, 2.0f, 3.0f);    //y轴上数据
 
 
     /**GridView中的数据*/

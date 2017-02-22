@@ -9,7 +9,12 @@ import android.widget.TextView;
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.base.BaseActivity;
 import com.lapsen.intelligentboiler.commonadapter.CommonAdapter;
+import com.lapsen.intelligentboiler.interfaces.DataAnalysisStrategy;
 import com.lapsen.intelligentboiler.presenter.DataAnalysisPresenter;
+import com.lapsen.intelligentboiler.realize.DayDataStrategyImpl;
+import com.lapsen.intelligentboiler.realize.HourDataStrategyImpl;
+import com.lapsen.intelligentboiler.realize.MonthDataStrategyImpl;
+import com.lapsen.intelligentboiler.realize.YearDataStrategyImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +34,12 @@ import lecho.lib.hellocharts.view.ColumnChartView;
 
 public class DataAnalysisActivity extends BaseActivity implements View.OnClickListener{
 
-    private TextView year_Tv, month_Tv, day_Tv, today_Tv;
+    private TextView year_Tv, month_Tv, day_Tv, hour_Tv;
     private ArrayList<TextView> tvLists;
     private GridView gridView;
     private DataAnalysisPresenter presenter;
     private ColumnChartView mColumnChartView;
-
-    private String type = "hour";  //图表显示的类型，默认为当日today
+    private DataAnalysisStrategy strategy;
 
 
 
@@ -55,17 +59,18 @@ public class DataAnalysisActivity extends BaseActivity implements View.OnClickLi
         month_Tv.setOnClickListener(this);
         day_Tv = (TextView) findViewById(R.id.day_Tv);
         day_Tv.setOnClickListener(this);
-        today_Tv = (TextView) findViewById(R.id.hour_Tv);
-        today_Tv.setOnClickListener(this);
+        hour_Tv = (TextView) findViewById(R.id.hour_Tv);
+        hour_Tv.setOnClickListener(this);
+
         //将textView放入集合中，方便对其进行点击颜色设置
         tvLists = new ArrayList<>();
         tvLists.add(year_Tv);
         tvLists.add(month_Tv);
         tvLists.add(day_Tv);
-        tvLists.add(today_Tv);
-        //默认当日数据被点击
-        setTvBg(3);
+        tvLists.add(hour_Tv);
         initChartView();
+        //默认当天数据显示
+        setTvBg(2);
     }
 
     private void initChartView(){
@@ -83,9 +88,7 @@ public class DataAnalysisActivity extends BaseActivity implements View.OnClickLi
     private void initPresenter(){
         presenter = new DataAnalysisPresenter();
         presenter.setDataAnalysisView(this);
-        presenter.setAdapter();
-        //展示图表
-        presenter.setChartData(type);
+        presenter.show(new DayDataStrategyImpl());   //默认显示当天的数据
     }
 
     @Override
@@ -93,23 +96,22 @@ public class DataAnalysisActivity extends BaseActivity implements View.OnClickLi
         switch (v.getId()){
             case R.id.year_Tv:
                 setTvBg(0);
-                type = "year";
+                strategy = new YearDataStrategyImpl();
                 break;
             case R.id.month_Tv:
                 setTvBg(1);
-                type = "month";
+                strategy = new MonthDataStrategyImpl();
                 break;
             case R.id.day_Tv:
                 setTvBg(2);
-                type = "day";
+                strategy = new DayDataStrategyImpl();
                 break;
             case R.id.hour_Tv:
                 setTvBg(3);
-                type = "hour";
+                strategy = new HourDataStrategyImpl();
                 break;
         }
-        presenter.setChartData(type);
-        presenter.setAdapter();
+        presenter.show(strategy);
     }
 
     /**适配器*/
