@@ -14,6 +14,7 @@ import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.activities.SelectDemonstrateActivity;
 import com.lapsen.intelligentboiler.beans.JsonBean;
 import com.lapsen.intelligentboiler.models.SelectDemonstrateModel;
+import com.lapsen.intelligentboiler.util.SPUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +111,7 @@ public class SelectDemonstratePresenter {
                 public void onClick(View v) {
                     Intent intent = new Intent();
                     intent.putExtra("BoilerType", ((Button)v).getText());
+                    SPUtils.getSharedPreferences(selectDemonstrateView).put("selectBoiler",((Button)v).getText());
                     selectDemonstrateView.toOtherActivity(intent);
                 }
             });
