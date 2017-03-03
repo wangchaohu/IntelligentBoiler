@@ -15,4 +15,14 @@
     <string name="month_text">月(Month)</string>
     <string name="day_text">日(Day)</string>
     <string name="hour_text">小时(Hour)</string>
+
+    <!--个人中心-->
+    <string name="username_text">用户名</string>
+    <string name="project_introduction_text">项目介绍</string>
+    <string name="boiler_introduction_text">锅炉介绍</string>
+    <string name="ec_text">环保中心</string>
+    <string name="intellect_text">智能APP</string>
+    <string name="technical_consultant_text">技术咨询</string>
+    <string name="setting_text">系统设置</string>
+    <string name="contact_text">联系我们</string>
 </resources>
