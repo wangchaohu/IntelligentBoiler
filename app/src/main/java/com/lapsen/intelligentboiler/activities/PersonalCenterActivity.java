@@ -1,5 +1,6 @@
 package com.lapsen.intelligentboiler.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -7,6 +8,7 @@ import android.widget.Toast;
 
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.base.BaseActivity;
+import com.lapsen.intelligentboiler.constant.Constant;
 
 /**
  * Created by lapsen_wang on 2017/1/10/0010.
@@ -22,6 +24,8 @@ public class PersonalCenterActivity extends BaseActivity {
         initToolBar("个人中心");
         init();
     }
+
+
 
     /**
      * 初始化控件
@@ -52,30 +56,45 @@ public class PersonalCenterActivity extends BaseActivity {
     class MyOnClickListener implements View.OnClickListener{
         @Override
         public void onClick(View v) {
+            Intent intent = new Intent(PersonalCenterActivity.this, SubPersonalCenterActivity.class);
             switch (v.getId()){
                 case R.id.userName_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"点击了用户名" ,Toast.LENGTH_SHORT).show();
                 break;
                 case R.id.projectIntroduction_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"项目介绍" ,Toast.LENGTH_SHORT).show();
+                    intent.setType(Constant.type_projectIntroduction);
+                    startActivity(intent);
                     break;
                 case R.id.boilerIntroduction_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"锅炉介绍" ,Toast.LENGTH_SHORT).show();
+                    intent.setType(Constant.type_boilerIntroduction);
+                    startActivity(intent);
                     break;
                 case R.id.ec_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"环保中心" ,Toast.LENGTH_SHORT).show();
+                    intent.setType(Constant.type_ec);
+                    startActivity(intent);
                     break;
                 case R.id.intellect_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"智能app" ,Toast.LENGTH_SHORT).show();
+                    intent.setType(Constant.type_intellect);
+                    startActivity(intent);
                     break;
                 case R.id.technicalConsultant_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"技术咨询" ,Toast.LENGTH_SHORT).show();
+                    intent.setType(Constant.type_technicalConsultant);
+                    startActivity(intent);
                     break;
                 case R.id.setting_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"设置" ,Toast.LENGTH_SHORT).show();
+                    intent.setType(Constant.type_setting);
+                    startActivity(intent);
                     break;
                 case R.id.contact_Tv:
                     Toast.makeText(PersonalCenterActivity.this,"联系我们" ,Toast.LENGTH_SHORT).show();
+                    intent.setType(Constant.type_contact);
+                    startActivity(intent);
                     break;
             }
         }

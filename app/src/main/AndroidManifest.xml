@@ -35,6 +35,8 @@
         <activity android:name=".activities.LoginActivity"/>
         <!--选择演示activity-->
         <activity android:name=".activities.SelectDemonstrateActivity"/>
+        <!--个人中心子Activity-->
+        <activity android:name=".activities.SubPersonalCenterActivity"/>
     </application>
 
 </manifest>
