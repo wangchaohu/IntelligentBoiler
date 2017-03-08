@@ -34,6 +34,9 @@ public class SubPersonalCenterActivity extends BaseActivity {
             setContentView(R.layout.layout_setting);
         }else if (Constant.type_contact.equals(type)){
             setContentView(R.layout.layout_contact);
+        }else {
+            return;
         }
+        initToolBar(type);
     }
 }
