@@ -78,11 +78,12 @@ public class MainActivity extends BaseActivity implements MainActivityInterface{
 
     @Override
     public void toOtherActivity(Class otherActivity) {
-        this.finish();
         Intent intent = new Intent(MainActivity.this, otherActivity);
-
-        //将锅炉信息传入intent，传递到MajorActivity
-        intent.putExtra("BoilerType",selectBoiler);
+        if (otherActivity != LoginActivity.class){
+            //将锅炉信息传入intent，传递到MajorActivity
+            intent.putExtra("BoilerType",selectBoiler);
+            this.finish();
+        }
         startActivity(intent);
     }
 
