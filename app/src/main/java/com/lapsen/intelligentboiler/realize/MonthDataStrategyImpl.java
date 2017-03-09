@@ -20,7 +20,13 @@ import lecho.lib.hellocharts.util.ChartUtils;
 
 public class MonthDataStrategyImpl implements DataAnalysisStrategy {
     private ColumnChartData data;
-
+    private MonthDataStrategyImpl(){}
+    private static class Holder{
+        private final static MonthDataStrategyImpl instance = new MonthDataStrategyImpl();
+    }
+    public static MonthDataStrategyImpl getInstance(){
+        return Holder.instance;
+    }
     /*返回需要填充的数据*/
     @Override
     public List<Float> getData() {

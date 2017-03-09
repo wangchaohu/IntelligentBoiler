@@ -21,9 +21,12 @@ public class WelcomeActivity extends BaseActivity {
         setContentView(R.layout.activity_welcome);
 
         customLapsenView = (CustomLapsenView) findViewById(R.id.lapsenView);
-
         customLapsenView.setParmer(WelcomeActivity.this);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        customLapsenView = null;
+    }
 }

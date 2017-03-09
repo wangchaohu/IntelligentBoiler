@@ -99,4 +99,12 @@ public class PersonalCenterActivity extends BaseActivity {
             }
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        userName = null;
+        projectIntroduction=null;boilerIntroduction=null;ec=null;intellect=null;technicalConsultant=null;setting=null;contact=null;
+    }
 }

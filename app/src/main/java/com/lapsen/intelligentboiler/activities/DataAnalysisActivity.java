@@ -88,7 +88,7 @@ public class DataAnalysisActivity extends BaseActivity implements View.OnClickLi
     private void initPresenter(){
         presenter = new DataAnalysisPresenter();
         presenter.setDataAnalysisView(this);
-        presenter.show(new DayDataStrategyImpl());   //默认显示当天的数据
+        presenter.show(DayDataStrategyImpl.getInstance());   //默认显示当天的数据
     }
 
     @Override
@@ -96,19 +96,19 @@ public class DataAnalysisActivity extends BaseActivity implements View.OnClickLi
         switch (v.getId()){
             case R.id.year_Tv:
                 setTvBg(0);
-                strategy = new YearDataStrategyImpl();
+                strategy = YearDataStrategyImpl.getInstance();
                 break;
             case R.id.month_Tv:
                 setTvBg(1);
-                strategy = new MonthDataStrategyImpl();
+                strategy = MonthDataStrategyImpl.getInstance();
                 break;
             case R.id.day_Tv:
                 setTvBg(2);
-                strategy = new DayDataStrategyImpl();
+                    strategy = DayDataStrategyImpl.getInstance();
                 break;
             case R.id.hour_Tv:
                 setTvBg(3);
-                strategy = new HourDataStrategyImpl();
+                    strategy = HourDataStrategyImpl.getInstance();
                 break;
         }
         presenter.show(strategy);
@@ -129,5 +129,13 @@ public class DataAnalysisActivity extends BaseActivity implements View.OnClickLi
                 tvLists.get(i).setBackgroundColor(getResources().getColor(R.color.text_bg));
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        strategy = null;
+        mColumnChartView = null;
+        presenter = null;
     }
 }

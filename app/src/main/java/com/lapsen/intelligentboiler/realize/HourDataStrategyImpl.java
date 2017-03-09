@@ -23,6 +23,14 @@ import lecho.lib.hellocharts.util.ChartUtils;
 public class HourDataStrategyImpl implements DataAnalysisStrategy {
     private ColumnChartData data;
 
+    private HourDataStrategyImpl(){}
+    private static class Holder{
+        private final static HourDataStrategyImpl instance = new HourDataStrategyImpl();
+    }
+    public static HourDataStrategyImpl getInstance(){
+        return Holder.instance;
+    }
+
     /*返回需要填充的数据*/
     @Override
     public List<Float> getData() {

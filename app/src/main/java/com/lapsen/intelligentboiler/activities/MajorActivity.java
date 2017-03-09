@@ -75,6 +75,7 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
                         @Override
                         public void onClick(View v) {
                             toOtherActivity(SelectDemonstrateActivity.class);
+                            finish();
                         }
                     });
                 }

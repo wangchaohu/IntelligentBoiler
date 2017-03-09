@@ -21,6 +21,14 @@ import lecho.lib.hellocharts.util.ChartUtils;
 public class DayDataStrategyImpl implements DataAnalysisStrategy {
     private ColumnChartData data;
 
+    private DayDataStrategyImpl(){}
+    private static class Holder{
+        private final static DayDataStrategyImpl instance = new DayDataStrategyImpl();
+    }
+    public static DayDataStrategyImpl getInstance(){
+        return Holder.instance;
+    }
+
     /*返回需要填充的数据*/
     @Override
     public List<Float> getData() {

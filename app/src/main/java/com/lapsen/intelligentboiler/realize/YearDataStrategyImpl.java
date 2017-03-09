@@ -24,6 +24,14 @@ import lecho.lib.hellocharts.util.ChartUtils;
 public class YearDataStrategyImpl implements DataAnalysisStrategy {
     private ColumnChartData data;
 
+    private YearDataStrategyImpl(){}
+    private static class Holder{
+        private final static YearDataStrategyImpl yearDataStrategy = new YearDataStrategyImpl();
+    }
+    public static YearDataStrategyImpl getInstance(){
+        return Holder.yearDataStrategy;
+    }
+
     /*返回需要填充的数据*/
     @Override
     public List<Float> getData() {
