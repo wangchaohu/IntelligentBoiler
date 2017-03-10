@@ -125,10 +125,10 @@ public class SelectDemonstratePresenter {
         Button button = new Button(mContext);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.weight = 1;
-        params.setMargins(5,5,5,5);
+        params.setMargins(10,5,10,5);
         button.setTag(i);
         button.setText(content);
-        button.setPadding(5,5,5,5);
+        button.setPadding(5,0,5,0);
         button.setBackgroundResource(R.drawable.selector_button);
         button.setLayoutParams(params);
         return button;
