@@ -19,5 +19,5 @@
         android:textSize="14sp"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:text="@string/choiceboiler_text"/>
+        android:text="确定"/>
 </FrameLayout>

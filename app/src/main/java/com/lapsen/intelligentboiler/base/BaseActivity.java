@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ import com.lapsen.intelligentboiler.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private LinearLayout mToolBar;
+    private RelativeLayout mToolBar;
     private TextView title_Tv;
     private ImageButton return_Btn;
     @Override
@@ -30,7 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public abstract void initViews(Bundle savedInstanceState);
 
     public void initToolBar(String title){
-        mToolBar = (LinearLayout) findViewById(R.id.toolBar);
+        mToolBar = (RelativeLayout) findViewById(R.id.toolBar);
         title_Tv = (TextView) findViewById(R.id.title_tv);
         return_Btn = (ImageButton) findViewById(R.id.btn_return);
         if (null != mToolBar){

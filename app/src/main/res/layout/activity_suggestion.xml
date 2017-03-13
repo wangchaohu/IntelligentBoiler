@@ -6,4 +6,22 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar"
         android:visibility="gone" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="优化描述"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_unselect"
+        android:hint="您的建议对我们的产品改善有很大的帮助哦~"
+        android:lineSpacingMultiplier="1.5"
+        android:cursorVisible="true"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:textSize="14sp"/>
 </LinearLayout>

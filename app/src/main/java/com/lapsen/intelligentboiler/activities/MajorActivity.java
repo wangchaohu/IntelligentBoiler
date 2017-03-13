@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
     private GridView mGridView;
     private ConvenientBanner convenientBanner;
 
-    private LinearLayout mToolBar;
+    private RelativeLayout mToolBar;
     private TextView title_Tv;
     private ImageButton return_Btn;
     private ViewStub choice_Btn;
@@ -55,11 +56,11 @@ public class MajorActivity extends BaseActivity implements MajorActivityInterfac
      */
     @Override
     public void initToolBar(String title) {
-        mToolBar = (LinearLayout) findViewById(R.id.toolBar);
+        mToolBar = (RelativeLayout) findViewById(R.id.toolBar);
         title_Tv = (TextView) findViewById(R.id.title_tv);
         return_Btn = (ImageButton) findViewById(R.id.btn_return);
         return_Btn.setVisibility(View.GONE);
-        choice_Btn = (ViewStub) findViewById(R.id.viewStub);
+        choice_Btn = (ViewStub) findViewById(R.id.choice_viewStub);
 
         if (null != mToolBar) {
             mToolBar.setVisibility(View.VISIBLE);
