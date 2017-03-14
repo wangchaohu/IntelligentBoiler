@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.base.BaseActivity;
@@ -20,7 +24,17 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
     private LinearLayout project;
     private LinearLayout monitor;
 
+    private RelativeLayout mToolBar;
+    private TextView title_Tv;
+    private ImageButton return_Btn;
+
+
+
+    private boolean isSelect = false;  //判断是否已经选择演示锅炉
+
     private SelectDemonstratePresenter presenter;
+
+
 
     @Override
     public void initViews(Bundle savedInstanceState) {
@@ -28,6 +42,39 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
         initToolBar("监控锅炉选择");
         init();
         initPresenter();
+    }
+
+    /**
+     * 设置是否已经选择锅炉
+     * */
+    public void setSelect(boolean select) {
+        isSelect = select;
+    }
+
+    @Override
+    public void initToolBar(String title) {
+        mToolBar = (RelativeLayout) findViewById(R.id.toolBar);
+        title_Tv = (TextView) findViewById(R.id.title_tv);
+        return_Btn = (ImageButton) findViewById(R.id.btn_return);
+        if (null != mToolBar){
+            mToolBar.setVisibility(View.VISIBLE);
+        }
+        if (null != title_Tv){
+            title_Tv.setText(title);
+        }
+        if (null != return_Btn){
+            return_Btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (isSelect){
+                        finish();
+                    }else {
+                        Toast.makeText(SelectDemonstrateActivity.this, "请选择一台演示锅炉", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+        }
     }
 
     private void init() {
@@ -75,6 +122,9 @@ public class SelectDemonstrateActivity extends BaseActivity implements SelectDem
         }
     }
 
+    /**
+     * 跳转到其他activity
+     * */
     @Override
     public void toOtherActivity(Intent intent) {
         intent.setClass(SelectDemonstrateActivity.this, MajorActivity.class);

@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.base.BaseActivity;
@@ -25,7 +26,7 @@ public class SuggestionActivity extends BaseActivity {
     @Override
     public void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_suggestion);
-        initToolBar("优化建议");
+        initToolBar(getResources().getString(R.string.suggestionTitle_text));
     }
 
     /**
@@ -57,18 +58,27 @@ public class SuggestionActivity extends BaseActivity {
 
 
         if (null != sure_Btn) {
+
+            sure_Btn.setOnInflateListener(new ViewStub.OnInflateListener() {
+                @Override
+                public void onInflate(ViewStub stub, View inflated) {
+                    inflated.findViewById(R.id.btn_sure).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(SuggestionActivity.this, "提交成功,谢谢你的反馈", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    });
+
+                }
+            });
             /**如果viewStub已经被撑开，捕获异常，让其显示*/
             try {
                 sure_Btn.inflate();
             } catch (Exception e) {
                 sure_Btn.setVisibility(View.VISIBLE);
             }
-            sure_Btn.setOnInflateListener(new ViewStub.OnInflateListener() {
-                @Override
-                public void onInflate(ViewStub stub, View inflated) {
-
-                }
-            });
         }
+
     }
 }

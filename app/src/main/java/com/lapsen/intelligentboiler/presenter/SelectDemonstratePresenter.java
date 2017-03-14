@@ -109,6 +109,7 @@ public class SelectDemonstratePresenter {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    selectDemonstrateView.setSelect(true);
                     Intent intent = new Intent();
                     intent.putExtra("BoilerType", ((Button)v).getText());
                     SPUtils.getSharedPreferences(selectDemonstrateView).put("selectBoiler",((Button)v).getText());
