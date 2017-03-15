@@ -39,6 +39,8 @@
         <activity android:name=".activities.SelectDemonstrateActivity"/>
         <!--个人中心子Activity-->
         <activity android:name=".activities.SubPersonalCenterActivity"/>
+        <!--忘记密码-->
+        <activity android:name=".activities.ForgottenPasswordActivity"/>
     </application>
 
 </manifest>

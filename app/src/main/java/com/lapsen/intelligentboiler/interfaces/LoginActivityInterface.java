@@ -1,5 +1,8 @@
 package com.lapsen.intelligentboiler.interfaces;
 
+import android.app.Activity;
+import android.content.Intent;
+
 import com.lapsen.intelligentboiler.activities.LoginActivity;
 
 /**
@@ -11,4 +14,5 @@ public interface LoginActivityInterface {
     public void setLoginPresenter(LoginActivity loginView);
     public void loginError();
     public void loginSuccess();
+    void toOtherActivity(Class activity);
 }

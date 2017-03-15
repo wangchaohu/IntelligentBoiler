@@ -24,7 +24,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    android:background="@android:color/transparent"
     android:inputType="phone"
     />
     </android.support.design.widget.TextInputLayout>
@@ -42,17 +41,16 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:inputType="textPassword"
-            android:background="@android:color/transparent"
             />
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/login_btn"
-        android:text="登录"
-        android:background="@color/colorPrimary"
-        android:layout_margin="16dp"/>
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/login_btn"
+    android:text="登录"
+    android:background="@color/colorPrimary"
+    android:layout_margin="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -3,6 +3,7 @@ package com.lapsen.intelligentboiler.presenter;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.lapsen.intelligentboiler.activities.ForgottenPasswordActivity;
 import com.lapsen.intelligentboiler.activities.LoginActivity;
 
 /**
@@ -22,5 +23,12 @@ public class LoginPresenter {
 
     public void login(String username, String password){
         Toast.makeText(mContext, username + "--->" + password, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 忘记密码
+     * */
+    public void forgot(){
+        loginView.toOtherActivity(ForgottenPasswordActivity.class);
     }
 }

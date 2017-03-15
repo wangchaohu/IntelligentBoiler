@@ -1,9 +1,12 @@
 package com.lapsen.intelligentboiler.activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.lapsen.intelligentboiler.R;
 import com.lapsen.intelligentboiler.base.BaseActivity;
@@ -20,6 +23,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityInterfac
     private TextInputEditText user_name;
     private TextInputEditText user_password;
     private Button login_Btn;
+    private TextView forgetPw_Tv;
 
     @Override
     public void initViews(Bundle savedInstanceState) {
@@ -48,6 +52,14 @@ public class LoginActivity extends BaseActivity implements LoginActivityInterfac
                 }
             }
         });
+
+        forgetPw_Tv = (TextView) findViewById(R.id.forgetPw_Tv);
+        forgetPw_Tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.forgot();
+            }
+        });
     }
 
     @Override
@@ -63,5 +75,10 @@ public class LoginActivity extends BaseActivity implements LoginActivityInterfac
     @Override
     public void loginSuccess() {
 
+    }
+
+    @Override
+    public void toOtherActivity(Class activity) {
+        startActivity(new Intent(LoginActivity.this, activity));
     }
 }
