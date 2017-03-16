@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="144dp"
         android:layout_height="144dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/boiler"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
 
