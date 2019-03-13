@@ -3,15 +3,15 @@
     <!--MainActivity-->
     <string name="btnText_login_main">登录</string>
     <string name="btnText_demonstrate_main">演示</string>
-    <string name="dialog_text">您上次选择的演示锅炉是：\n</string>
+    <string name="dialog_text">您上次选择的演示场景是：\n</string>
     <string name="dialog_text_yes">直接前往</string>
-    <string name="dialog_text_no">选择演示锅炉</string>
-    <string name="choiceboiler_text">选择锅炉</string>
+    <string name="dialog_text_no">选择演示场景</string>
+    <string name="choiceboiler_text">选择场景</string>
 
-    <!--选择锅炉-->
+    <!--选择场景-->
     <string name="locateplace_text">所在地区</string>
     <string name="project_text">相关项目</string>
-    <string name="monitor_text">监控锅炉</string>
+    <string name="monitor_text">监控</string>
 <!--数据分析-->
     <string name="year_text">年(Year)</string>
     <string name="month_text">月(Month)</string>
@@ -21,7 +21,7 @@
     <!--个人中心-->
     <string name="username_text">用户名</string>
     <string name="project_introduction_text">项目介绍</string>
-    <string name="boiler_introduction_text">锅炉介绍</string>
+    <string name="boiler_introduction_text">场景介绍</string>
     <string name="ec_text">环保中心</string>
     <string name="intellect_text">智能APP</string>
     <string name="technical_consultant_text">技术咨询</string>
